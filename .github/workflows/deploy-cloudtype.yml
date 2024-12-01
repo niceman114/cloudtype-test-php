@@ -1,0 +1,40 @@
+name: Deploy to cloudtype
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_API_KEY }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_API_KEY }}
+          project: niceman114/playground
+          stage: main
+          yaml: |
+            name: cloudtype-test-php
+            app: php
+            options:
+              env:
+                - name: MY_ID
+                  value: dean.oh
+                - name: MY_PASS
+                  value: 1234!
+              buildenv: []
+              prestart: composer update
+              strategy: rolling
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
+              preset: php
