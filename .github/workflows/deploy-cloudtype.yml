@@ -27,9 +27,9 @@ jobs:
             options:
               env:
                 - name: MY_ID
-                  value: niceman114
+                  value: ${{ secrets.MY_ID }}
                 - name: MY_PASS
-                  value: helloworld1234!
+                  value: ${{ secrets.MY_PASS }}
               buildenv: []
               prestart: composer update
               strategy: rolling
