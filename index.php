@@ -4,6 +4,8 @@
     <title>PHP</title>
   </head>
   <body>
-    <?= "hello world" ?>
+    <p><?= "hello world" ?></p>
+    <p><?= getenv('MY_ID') ?></p>
+    <p><?= getenv('MY_PASS') ?></p>
   </body>
 </html>
