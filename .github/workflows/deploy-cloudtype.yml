@@ -27,9 +27,9 @@ jobs:
             options:
               env:
                 - name: MY_ID
-                  value: dean.oh
+                  value: niceman114
                 - name: MY_PASS
-                  value: 1234!
+                  value: helloworld1234!
               buildenv: []
               prestart: composer update
               strategy: rolling
