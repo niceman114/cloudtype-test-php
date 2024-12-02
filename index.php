@@ -11,8 +11,9 @@ $currentDateTime = Carbon::now()->toDateTimeString();
     <title>PHP</title>
   </head>
   <body>
-    <p><?= getenv('MY_ID') ?></p>
-    <p><?= getenv('MY_PASS') ?></p>
+    <p>MY_ID: <?= getenv('MY_ID') ?></p>
+    <p>MY_PASS: <?= getenv('MY_PASS') ?></p>
+    <p>readOnly: <?= getenv('readOnly') ?></p>
     <p><?= $currentDateTime ?></p>
   </body>
 </html>
