@@ -15,6 +15,7 @@ jobs:
         with:
           token: ${{ secrets.CLOUDTYPE_API_KEY }}
           ghtoken: ${{ secrets.GHP_TOKEN }}
+          readOnly: true
       - name: Deploy
         uses: cloudtype-github-actions/deploy@v1
         with:
@@ -30,6 +31,8 @@ jobs:
                   value: ${{ secrets.MY_ID }}
                 - name: MY_PASS
                   value: ${{ secrets.MY_PASS }}
+                - name: readOnly
+                  value: true
               buildenv: []
               prestart: composer update
               strategy: rolling
